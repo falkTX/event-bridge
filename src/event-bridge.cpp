@@ -82,6 +82,9 @@ struct EventBridge::Impl : EventInput::Callback
     {
         for (EventInput* input : inputs)
             input->clear();
+
+        for (auto& item : outputs)
+            item.second->clearCache();
     }
 
     void enableTapTempo(const EventType etype, uint8_t index, const bool enable)

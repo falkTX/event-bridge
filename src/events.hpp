@@ -207,6 +207,11 @@ struct EventOutput {
     virtual ~EventOutput() {};
 
     /**
+     * Clear cache.
+     */
+    virtual void clearCache() {}
+
+    /**
      * Event trigger function, to be called for sending events.
      */
     virtual void event(int32_t value) = 0;

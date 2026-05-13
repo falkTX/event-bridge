@@ -40,6 +40,12 @@ struct SysfsLED : EventOutput {
         }
     }
 
+    void clearCache() override
+    {
+        for (int i = 0; i < kNumLEDs; ++i)
+            lastValues[i] = -1;
+    }
+
     void event(const int32_t value) override
     {
         const uint8_t r = (value >> 16) & 0xff;
